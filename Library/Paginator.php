@@ -228,14 +228,14 @@ class Paginator
 
             // Previous
             $prev = $currentPage - 1;
-            if ($currentPage >= $navSize && $usePrevNextNav) {
-                $Navigation[] = array(
-                    "PageNumber" => $prev,
-                    "Label" => $this->prevTitle,
-                    "Url" => $this->parseTplUrl($prev),
-                    "isCurrent" => false
-                );
-            }
+//            if ($currentPage >= $navSize && $usePrevNextNav) {
+//                $Navigation[] = array(
+//                    "PageNumber" => $prev,
+//                    "Label" => $this->prevTitle,
+//                    "Url" => $this->parseTplUrl($prev),
+//                    "isCurrent" => false
+//                );
+//            }
 
             // All the pages
             for ($i = $start; $i <= $end; $i++) {
@@ -249,14 +249,6 @@ class Paginator
 
             // Next
             $next = $currentPage + 1;
-            if ($next < $totalPages && $end < $totalPages && $usePrevNextNav) {
-                $Navigation[] = array(
-                    "PageNumber" => $next,
-                    "Label" => $this->nextTitle,
-                    "Url" => $this->parseTplUrl($next),
-                    "isCurrent" => false
-                );
-            }
 
             $nav = array();
             if ($prev > 0 && $prev != $currentPage) {
@@ -267,7 +259,7 @@ class Paginator
 
             if ($end <= $totalPages && $end != $currentPage) {
                 $nav['next'] = array(
-                    "PageNumber" => $prev,
+                    "PageNumber" => $next,
                 );
             }
 
